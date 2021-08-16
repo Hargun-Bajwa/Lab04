@@ -59,7 +59,6 @@ public class noteServlet extends HttpServlet {
             throws ServletException, IOException {
          String title = request.getParameter("title");
         String content = request.getParameter("content");
-        
         Note note = new Note(title,content);
         note.setTitle(title);
         note.setContent(content);
@@ -70,6 +69,7 @@ public class noteServlet extends HttpServlet {
              try (PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path,false)))) {
                  pw.println(title);
                  pw.println(content);
+                 pw.close();
              }
                   
         }        
